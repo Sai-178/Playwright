@@ -37,6 +37,9 @@ test.only("grab the title of the the first product",async({page})=>{
   await page.locator('input#password').click();
   await page.locator("input#password").fill("Learning@830$3mK2");
   await page.locator('input#signInBtn').click();
+  //it is wait until network is idle and then it will move to next step. it is used to avoid the flakiness of the test.
+  //  it is used to wait for the page to load completely before moving to next step.
+  await page.waitForLoadState('networkidle');
   //console.log(await page.locator('[style*="block"]').textContent());
  // await expect( await page.locator('[style*="block"]')).toContainText('Incorrect username/password.');
   console.log(await page.locator('.card-title a').nth(1).textContent());
