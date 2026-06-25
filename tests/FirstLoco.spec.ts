@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.skip('test', async ({ page }) => {
+test('test', async ({ page }) => {
   await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
   await page.getByRole('textbox', { name: 'Username:' }).click();
   await page.getByRole('textbox', { name: 'Username:' }).fill('rahulshettyacademy');
@@ -10,7 +10,7 @@ test.skip('test', async ({ page }) => {
   await page.getByRole('checkbox', { name: 'I Agree to the terms and' }).check();
   await page.getByRole('button', { name: 'Sign In' }).click();
 });
-test.skip("loginpage using css selectors",async({page})=>{
+test("loginpage using css selectors",async({page})=>{
   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
   await page.locator('input#username').click(); 
   await page.locator("input#username").fill("rahulshettyacademy");
@@ -20,7 +20,7 @@ test.skip("loginpage using css selectors",async({page})=>{
 
 });
 
-test.skip("logging failed and extract the failed messaage",async({page})=>{
+test("logging failed and extract the failed messaage",async({page})=>{
   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
   await page.locator('input#username').click();
   await page.locator("input#username").fill("rahulshettyacademy");
@@ -30,7 +30,7 @@ test.skip("logging failed and extract the failed messaage",async({page})=>{
   //console.log(await page.locator('[style*="block"]').textContent());
   await expect( await page.locator('[style*="block"]')).toContainText('Incorrect username/password.');
 });
-test.only("grab the title of the the first product",async({page})=>{
+test("grab the title of the the first product",async({page})=>{
   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
   await page.locator('input#username').click();
   await page.locator("input#username").fill("rahulshettyacademy");

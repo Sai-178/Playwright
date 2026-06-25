@@ -3,7 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright test && node generate-report.js",
+    "report": "node generate-report.js",
+    "report:view": "playwright show-report",
+    "report:custom": "start custom-report/index.html",
+    "test:custom-report": "playwright test && node generate-report.js && start custom-report/index.html"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Sai-178/Playwright.git"
@@ -18,6 +27,7 @@
   "homepage": "https://github.com/Sai-178/Playwright#readme",
   "devDependencies": {
     "@playwright/test": "^1.60.0",
-    "@types/node": "^25.9.3"
+    "@types/node": "^25.9.3",
+    "allure-playwright": "^3.10.0"
   }
 }
